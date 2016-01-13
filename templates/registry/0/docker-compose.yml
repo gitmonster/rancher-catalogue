@@ -106,8 +106,8 @@ lb:
   - ${RPORT}:5000/tcp
   - ${PPORT}:443/tcp
   labels:
-    io.rancher.loadbalancer.target.ssl-proxy: ${PPORT}=443
-    io.rancher.loadbalancer.target.registry: ${RPORT}=5000
+    io.rancher.loadbalancer.target.ssl-proxy: ${DOMAIN}:${PPORT}=443
+    io.rancher.loadbalancer.target.registry: ${DOMAIN}:${RPORT}=5000
     io.rancher.scheduler.global: 'true'
     io.rancher.scheduler.affinity:host_label: lb=1
   tty: true
