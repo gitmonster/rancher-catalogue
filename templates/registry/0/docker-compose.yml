@@ -73,6 +73,8 @@ portus:
     REGISTRY_NAME: Registry
   tty: true
   stdin_open: true
+  labels:
+    io.rancher.sidekicks: ssl-proxy
   volumes:
     - ${DIR}/certs:/certs
   links:
@@ -96,6 +98,8 @@ registry:
     REGISTRY_HTTP_TLS_CERTIFICATE: /certs/registry.crt
     REGISTRY_HTTP_TLS_KEY: /certs/registry.key
   tty: true
+  labels:
+    io.rancher.sidekicks: ssl-proxy
   stdin_open: true
   volumes:
     - ${DIR}/certs:/certs
